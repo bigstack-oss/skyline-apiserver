@@ -14,12 +14,12 @@
 
 import multiprocessing
 
-bind = "127.0.0.1:9998"
+bind = "unix:/var/lib/skyline/skyline.sock"
+reuse_port = False
 workers = (1 + multiprocessing.cpu_count()) // 2
 worker_class = "uvicorn.workers.UvicornWorker"
 timeout = 300
 keepalive = 5
-reuse_port = True
 proc_name = "skyline"
 
 logconfig_dict = {
